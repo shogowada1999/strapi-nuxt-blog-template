@@ -674,6 +674,54 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiSinglePostSinglePost extends Schema.CollectionType {
+  collectionName: 'single_posts';
+  info: {
+    singularName: 'single-post';
+    pluralName: 'single-posts';
+    displayName: 'Single Post';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 50;
+      }>;
+    slug_source: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 50;
+      }>;
+    slug: Attribute.UID<'api::single-post.single-post', 'slug_source'> &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 50;
+      }>;
+    thumbnail: Attribute.Media<'images'> & Attribute.Required;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 160;
+      }>;
+    content: Attribute.RichText & Attribute.Required;
+    is_headline: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::single-post.single-post', 'oneToOne', 'admin::user'> & Attribute.Private;
+    updatedBy: Attribute.Relation<'api::single-post.single-post', 'oneToOne', 'admin::user'> & Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -720,6 +768,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::category.category': ApiCategoryCategory;
       'api::post.post': ApiPostPost;
+      'api::single-post.single-post': ApiSinglePostSinglePost;
       'api::tag.tag': ApiTagTag;
     }
   }
