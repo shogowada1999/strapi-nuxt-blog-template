@@ -552,6 +552,60 @@ export interface ApiSinglePostSinglePost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSiteInformationSiteInformation extends Struct.SingleTypeSchema {
+  collectionName: 'site_informations';
+  info: {
+    singularName: 'site-information';
+    pluralName: 'site-informations';
+    displayName: 'Site Information';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 50;
+      }>;
+    sub_title: Schema.Attribute.String &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    home_url: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+    avatar: Schema.Attribute.Media<'images' | 'files'>;
+    admin_name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 20;
+      }>;
+    profile: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 200;
+      }>;
+    icon_links: Schema.Attribute.Component<'link.icon-link', true>;
+    navigation_links: Schema.Attribute.Component<'link.text-link', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+  };
+}
+
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
@@ -917,6 +971,7 @@ declare module '@strapi/strapi' {
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::post.post': ApiPostPost;
       'api::single-post.single-post': ApiSinglePostSinglePost;
+      'api::site-information.site-information': ApiSiteInformationSiteInformation;
       'api::tag.tag': ApiTagTag;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
