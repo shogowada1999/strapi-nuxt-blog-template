@@ -482,7 +482,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
         minLength: 1;
         maxLength: 51;
       }>;
-    slug: Schema.Attribute.UID &
+    slug: Schema.Attribute.UID<'slugSource'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
@@ -533,7 +533,7 @@ export interface ApiSinglePostSinglePost extends Struct.CollectionTypeSchema {
         minLength: 1;
         maxLength: 50;
       }>;
-    slug: Schema.Attribute.UID &
+    slug: Schema.Attribute.UID<'slugSource'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;

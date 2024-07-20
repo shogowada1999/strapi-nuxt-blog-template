@@ -31,7 +31,8 @@
       "type": "uid",
       "required": true,
       "minLength": 1,
-      "maxLength": 50
+      "maxLength": 50,
+      "targetField": "slugSource"
     },
     "isHeader": {
       "type": "boolean",

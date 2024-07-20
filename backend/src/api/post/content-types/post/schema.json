@@ -31,7 +31,8 @@
       "type": "uid",
       "required": true,
       "maxLength": 50,
-      "minLength": 1
+      "minLength": 1,
+      "targetField": "slugSource"
     },
     "category": {
       "type": "relation",
