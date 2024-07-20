@@ -1,5 +1,5 @@
 {
-  "name": "strapi-nuxt-blog-template-backend",
+  "name": "backend",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -10,23 +10,27 @@
     "strapi": "strapi",
     "deploy": "strapi deploy"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18"
+  },
   "dependencies": {
-    "@strapi/strapi": "4.25.3",
-    "@strapi/plugin-users-permissions": "4.25.3",
-    "@strapi/plugin-i18n": "4.25.3",
-    "@strapi/plugin-cloud": "4.25.3",
-    "pg": "8.8.0",
+    "@strapi/strapi": "5.0.0-rc.4",
+    "@strapi/plugin-users-permissions": "5.0.0-rc.4",
+    "@strapi/plugin-cloud": "5.0.0-rc.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "5.3.4",
-    "styled-components": "5.3.3"
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0",
+    "pg": "8.8.0"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "833602f9-8722-4e30-bf9e-3f3b90132e2f"
+    "uuid": "6b04631b-3782-4bc5-9102-562df87109fa"
   },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
