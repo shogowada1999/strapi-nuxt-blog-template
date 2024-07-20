@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_link_text_links",
+  "info": {
+    "displayName": "Text Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    }
+  }
+}
