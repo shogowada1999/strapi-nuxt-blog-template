@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_link_icon_links",
+  "info": {
+    "displayName": "Icon Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    },
+    "alt": {
+      "type": "string",
+      "required": true,
+      "minLength": 1,
+      "unique": true
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    }
+  }
+}
