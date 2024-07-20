@@ -28,7 +28,9 @@
       "type": "string",
       "required": true,
       "unique": true,
-      "minLength": 1
+      "minLength": 1,
+      "default": "https://",
+      "regex": "^(https?:\\/\\/)[^\\s\\/$.?#].[^\\s]*\\.[^\\s]*$"
     },
     "avatar": {
       "type": "media",

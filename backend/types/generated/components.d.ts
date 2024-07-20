@@ -5,6 +5,7 @@ export interface LinkTextLink extends Struct.ComponentSchema {
   info: {
     displayName: 'Text Link';
     icon: 'link';
+    description: '';
   };
   attributes: {
     text: Schema.Attribute.String &
@@ -16,7 +17,8 @@ export interface LinkTextLink extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
-      }>;
+      }> &
+      Schema.Attribute.DefaultTo<'https://'>;
   };
 }
 
@@ -25,6 +27,7 @@ export interface LinkIconLink extends Struct.ComponentSchema {
   info: {
     displayName: 'Icon Link';
     icon: 'link';
+    description: '';
   };
   attributes: {
     icon: Schema.Attribute.String &
@@ -42,7 +45,8 @@ export interface LinkIconLink extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
-      }>;
+      }> &
+      Schema.Attribute.DefaultTo<'https://'>;
   };
 }
 

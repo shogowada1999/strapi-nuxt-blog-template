@@ -585,7 +585,8 @@ export interface ApiSiteInformationSiteInformation extends Struct.SingleTypeSche
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
-      }>;
+      }> &
+      Schema.Attribute.DefaultTo<'https://'>;
     avatar: Schema.Attribute.Media<'images' | 'files'>;
     adminName: Schema.Attribute.String &
       Schema.Attribute.Required &
