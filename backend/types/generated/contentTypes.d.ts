@@ -383,6 +383,27 @@ export interface PluginUsersPermissionsUser extends Struct.CollectionTypeSchema 
   };
 }
 
+export interface ApiAdvertisementAdvertisement extends Struct.SingleTypeSchema {
+  collectionName: 'advertisements';
+  info: {
+    singularName: 'advertisement';
+    pluralName: 'advertisements';
+    displayName: 'Advertisement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    single_posts: Schema.Attribute.Relation<'oneToMany', 'api::single-post.single-post'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -870,6 +891,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::advertisement.advertisement': ApiAdvertisementAdvertisement;
       'api::category.category': ApiCategoryCategory;
       'api::post.post': ApiPostPost;
       'api::single-post.single-post': ApiSinglePostSinglePost;
