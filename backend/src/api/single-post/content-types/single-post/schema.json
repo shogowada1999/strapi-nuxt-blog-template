@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "single_posts",
+  "info": {
+    "singularName": "single-post",
+    "pluralName": "single-posts",
+    "displayName": "Single Post"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 50,
+      "minLength": 1
+    },
+    "slug_source": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "private": true,
+      "unique": true,
+      "minLength": 1
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "slug_source",
+      "required": true,
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "is_header": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 160
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
