@@ -4,7 +4,8 @@
   "info": {
     "singularName": "site-information",
     "pluralName": "site-informations",
-    "displayName": "Site Information"
+    "displayName": "Site Information",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,27 +19,27 @@
       "maxLength": 50,
       "minLength": 1
     },
-    "sub_title": {
+    "subTitle": {
       "type": "string",
       "maxLength": 50,
       "unique": true
     },
-    "home_url": {
+    "homeUrl": {
       "type": "string",
       "required": true,
       "unique": true,
       "minLength": 1
     },
     "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": false
+      ]
     },
-    "admin_name": {
+    "adminName": {
       "type": "string",
       "required": true,
       "maxLength": 20,
@@ -51,12 +52,12 @@
       "maxLength": 200,
       "minLength": 1
     },
-    "icon_links": {
+    "iconLinks": {
       "type": "component",
       "repeatable": true,
       "component": "link.icon-link"
     },
-    "navigation_links": {
+    "navigationLinks": {
       "type": "component",
       "repeatable": true,
       "component": "link.text-link"

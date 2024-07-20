@@ -389,12 +389,13 @@ export interface ApiAdvertisementAdvertisement extends Struct.SingleTypeSchema {
     singularName: 'advertisement';
     pluralName: 'advertisements';
     displayName: 'Advertisement';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    single_posts: Schema.Attribute.Relation<'oneToMany', 'api::single-post.single-post'>;
+    singlePosts: Schema.Attribute.Relation<'oneToMany', 'api::single-post.single-post'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -438,12 +439,13 @@ export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
     singularName: 'portfolio';
     pluralName: 'portfolios';
     displayName: 'Portfolio';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    text_links: Schema.Attribute.Component<'link.text-link', true>;
+    textLinks: Schema.Attribute.Component<'link.text-link', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -459,6 +461,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     singularName: 'post';
     pluralName: 'posts';
     displayName: 'Post';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -471,7 +474,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
         minLength: 1;
         maxLength: 50;
       }>;
-    slug_source: Schema.Attribute.String &
+    slugSource: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Private &
       Schema.Attribute.Unique &
@@ -479,7 +482,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
         minLength: 1;
         maxLength: 51;
       }>;
-    slug: Schema.Attribute.UID<'slug_source'> &
+    slug: Schema.Attribute.UID &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
@@ -509,6 +512,7 @@ export interface ApiSinglePostSinglePost extends Struct.CollectionTypeSchema {
     singularName: 'single-post';
     pluralName: 'single-posts';
     displayName: 'Single Post';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -521,7 +525,7 @@ export interface ApiSinglePostSinglePost extends Struct.CollectionTypeSchema {
         minLength: 1;
         maxLength: 50;
       }>;
-    slug_source: Schema.Attribute.String &
+    slugSource: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Private &
       Schema.Attribute.Unique &
@@ -529,13 +533,13 @@ export interface ApiSinglePostSinglePost extends Struct.CollectionTypeSchema {
         minLength: 1;
         maxLength: 50;
       }>;
-    slug: Schema.Attribute.UID<'slug_source'> &
+    slug: Schema.Attribute.UID &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
         maxLength: 50;
       }>;
-    is_header: Schema.Attribute.Boolean & Schema.Attribute.Required & Schema.Attribute.DefaultTo<false>;
+    isHeader: Schema.Attribute.Boolean & Schema.Attribute.Required & Schema.Attribute.DefaultTo<false>;
     thumbnail: Schema.Attribute.Media<'images' | 'files'> & Schema.Attribute.Required;
     description: Schema.Attribute.Text &
       Schema.Attribute.Required &
@@ -558,6 +562,7 @@ export interface ApiSiteInformationSiteInformation extends Struct.SingleTypeSche
     singularName: 'site-information';
     pluralName: 'site-informations';
     displayName: 'Site Information';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -570,19 +575,19 @@ export interface ApiSiteInformationSiteInformation extends Struct.SingleTypeSche
         minLength: 1;
         maxLength: 50;
       }>;
-    sub_title: Schema.Attribute.String &
+    subTitle: Schema.Attribute.String &
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 50;
       }>;
-    home_url: Schema.Attribute.String &
+    homeUrl: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
     avatar: Schema.Attribute.Media<'images' | 'files'>;
-    admin_name: Schema.Attribute.String &
+    adminName: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
@@ -595,8 +600,8 @@ export interface ApiSiteInformationSiteInformation extends Struct.SingleTypeSche
         minLength: 1;
         maxLength: 200;
       }>;
-    icon_links: Schema.Attribute.Component<'link.icon-link', true>;
-    navigation_links: Schema.Attribute.Component<'link.text-link', true>;
+    iconLinks: Schema.Attribute.Component<'link.icon-link', true>;
+    navigationLinks: Schema.Attribute.Component<'link.text-link', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
