@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: auto;
+
+  @media #{$screen_xl} {
+    padding: 3%;
+    max-width: 1900px;
+  }
+}
+
+.light body {
+  background-color: $color_light_base;
+}
+
+.dark body {
+  background-color: $color_dark_base;
+}

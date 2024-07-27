@@ -10,4 +10,17 @@ export default defineNuxtConfig({
       { name: 'NotoSansJP-Medium', src: '/NotoSansJP-Medium.ttf' },
     ],
   },
+  alias: {
+    '@': './',
+  },
+  css: ['@/assets/styles/main.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "./assets/styles/_variables.scss" as *;',
+        },
+      },
+    },
+  },
 });
