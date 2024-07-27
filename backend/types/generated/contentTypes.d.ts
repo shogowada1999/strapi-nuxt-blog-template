@@ -480,7 +480,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
-        maxLength: 51;
+        maxLength: 50;
       }>;
     slug: Schema.Attribute.UID<'slugSource'> &
       Schema.Attribute.Required &

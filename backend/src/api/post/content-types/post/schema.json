@@ -23,7 +23,7 @@
       "type": "string",
       "required": true,
       "unique": true,
-      "maxLength": 51,
+      "maxLength": 50,
       "minLength": 1,
       "private": true
     },
