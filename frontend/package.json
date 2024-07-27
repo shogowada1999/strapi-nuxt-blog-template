@@ -18,6 +18,7 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^9.1.0"
+    "eslint-config-prettier": "^9.1.0",
+    "sass": "^1.77.8"
   }
 }
